@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var hash = require('pbkdf2-password')();
-
+var bkfd2Password = require('pbkdf2-password');
+var hash = bkfd2Password();
 // dummy database
 
 var users = {
@@ -18,12 +18,12 @@ hash({ password: 'foobar'}, function (err, pass, salt, hash) {
   users.tj.hash = hash;
 });
 
+
 function authenticate(name, pass, fn){
   var user = users[name];
   if (!user) return fn(null, null);
-  console.log("user:"+name+"pass:"+pass);
-  
-  hash({passwork: pass, salt: user.salt}, function(err, pass, salt, hash){
+
+  hash({password: pass, salt: user.salt}, function(err, pass, salt, hash) {
     if (err) return fn(err);
     if(hash === user.hash) return fn(null, user)
     fn(null, null) 
@@ -32,7 +32,6 @@ function authenticate(name, pass, fn){
 
 
 router.post('/login', function(req, res, next){
-  console.log(req);
   authenticate(req.body.username, req.body.password, function(err, user){
     if (err) return next(err)
     if(user){
