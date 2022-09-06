@@ -35,9 +35,9 @@ router.post('/login', function(req, res, next){
   authenticate(req.body.username, req.body.password, function(err, user){
     if (err) return next(err)
     if(user){
-      console.log("dang nhap thanh cong")
+      console.log("login suggest")
     }else{
-      console.log("dang nhap khong thanh cong")
+      console.log("login fails")
     }
   })
   res.render('login');

@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1= title
+  p #{message}
   form(method='post', action='/login')
     p
       label(for='username') Username:
