@@ -3,8 +3,8 @@
   自分のストーリーが保存されるツールとして活動されます
 　日記として利用することが可能です
 ### Spec in
+<img src="/posts/spec-image.png"  width="800" height="600">
 [Link Spec](/spec/)
-[SPEC](/posts/spec-image.png "Optional title")
 
 ### 言語
 #### Nodejs
