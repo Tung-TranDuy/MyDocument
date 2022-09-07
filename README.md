@@ -7,6 +7,6 @@
 [Link Spec](/spec/)
 
 ### 言語
-#### Nodejs
-#### MVC
-#### MYSQL
+.Nodejs
+.MVC
+.MYSQL
