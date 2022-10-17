@@ -1,8 +1,12 @@
 const db = require("../models/user")
+const Content = require("../models/content");
 var bkfd2Password = require('pbkdf2-password');
 var hash = bkfd2Password();
 
 function authenticate(name, pass, fn){
+  const content = Content.getContents().then((result) => {
+    console.log(result);
+  });
   var user = db.users[0];
   if (name != user.name) return fn(null, null)
 

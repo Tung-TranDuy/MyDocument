@@ -19,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+
 app.use(session({secret: 'my super secret'}));
 // The session middleware won't get called for any requests that get handled by router 
 // (even if you declare the routes that the router should handle at some later point)
