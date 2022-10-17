@@ -1,14 +1,31 @@
 extends layout
 
 block content
-  h1= title
-  p #{message}
-  form(method='post', action='/login')
-    p
-      label(for='username') Username:
-      input#username(type='text', name='username')
-    p
-      label(for='password') Password:
-      input#password(type='text', name='password')
-    p
-      input(type='submit', value='Login')
+  form(method='post', action='/login').login_form
+    .form-outline.mb-4
+      input#form2Example1.form-control(type='text', name='username')
+      label.form-label(for='form2Example1') Email address
+    .form-outline.mb-4
+      input#form2Example2.form-control(type='password', name='password')
+      label.form-label(for='form2Example2') Password
+    .row.mb-4
+      .col.d-flex.justify-content-center
+        .form-check
+          input#form2Example31.form-check-input(type='checkbox' value='' checked='')
+          label.form-check-label(for='form2Example31')  Remember me 
+      .col
+        a(href='#!') Forgot password?
+    button.btn.btn-primary.btn-block.mb-4(type='submit') Sign in
+    .text-center
+      p
+        | Not a member? 
+        a(href='#!') Register
+      p or sign up with:
+      button.btn.btn-link.btn-floating.mx-1(type='button')
+        i.fab.fa-facebook-f
+      button.btn.btn-link.btn-floating.mx-1(type='button')
+        i.fab.fa-google
+      button.btn.btn-link.btn-floating.mx-1(type='button')
+        i.fab.fa-twitter
+      button.btn.btn-link.btn-floating.mx-1(type='button')
+        i.fab.fa-github
