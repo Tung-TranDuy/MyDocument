@@ -4,9 +4,6 @@ var bkfd2Password = require('pbkdf2-password');
 var hash = bkfd2Password();
 
 function authenticate(name, pass, fn){
-  const content = Content.getContents().then((result) => {
-    console.log(result);
-  });
   var user = db.users[0];
   if (name != user.name) return fn(null, null)
 
@@ -16,6 +13,13 @@ function authenticate(name, pass, fn){
     fn(null, null)
   });
 }
+
+exports.logout = function(req, res){
+  if (req.session){
+    if(req.session.user) delete req.session.user
+  }
+  res.render("login")
+} 
 
 exports.login = function(req, res){
   authenticate(req.body.username, req.body.password, function(err, user){
@@ -27,7 +31,7 @@ exports.login = function(req, res){
           req.session.success = 'Authenticated as ' + user.name;
         }
         // res.locals.message = "login success"
-        res.redirect('back');
+        res.redirect('documents');
       });
     }else{
       req.session.error = "Authentication failed, please check your accout"

@@ -1,13 +1,5 @@
-body {
-  padding: 50px;
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
-} 
-
 .login_form{
+  padding: 50px;
   width: 60%;
   margin-left: 20%;
 }
-
-/* a {
-  color: #00B7FF;
-} */
