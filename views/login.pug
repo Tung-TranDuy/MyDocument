@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  p #{message}
   form(method='post', action='/login').login_form
     .form-outline.mb-4
       input#form2Example1.form-control(type='text', name='username')

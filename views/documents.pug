@@ -1,0 +1,74 @@
+extends layout
+
+block content
+  nav#mainNav.navbar.navbar-expand-lg.navbar-light
+    .container.px-4.px-lg-5
+      a.navbar-brand(href='index.html') My Blog
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+        | Menu
+        i.fas.fa-bars
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto.py-4.py-lg-0
+          li.nav-item
+            a.nav-link.px-lg-3.py-3.py-lg-4(href='index.html') Home
+          li.nav-item
+            a.nav-link.px-lg-3.py-3.py-lg-4(href='about.html') About Me
+          li.nav-item
+            a.nav-link.px-lg-3.py-3.py-lg-4(href='post.html') Sample Post
+          li.nav-item
+            a.nav-link.px-lg-3.py-3.py-lg-4(href='contact.html') Contact
+          li.nav-item
+            a.nav-link.px-lg-3.py-3.py-lg-4(href='/logout') Log Out
+  // Page Header
+  header.masthead(style="background-image: url('assets/img/home-bg.jpg')")
+    .container.position-relative.px-4.px-lg-5
+      .row.gx-4.gx-lg-5.justify-content-center
+        .col-md-10.col-lg-8.col-xl-7
+          .site-heading
+            h1 TungTD Blog
+            span.subheading A Blog Theme by Start Bootstrap
+  // Main Content
+  .container.px-4.px-lg-5
+    .row.gx-4.gx-lg-5.justify-content-center
+      .col-md-10.col-lg-8.col-xl-7   
+        // Post preview
+        each value, index in documents
+          .post-preview
+            a(href='post.html')
+              h2.post-title= value.title
+              h3.post-subtitle= value.description 
+            p.post-meta
+              | Posted by
+              a(href='#!')  TungTD 
+              | on September 24, 2022
+          // Divider
+          hr.my-4
+        .d-flex.justify-content-end.mb-4
+          a.btn.btn-primary.text-uppercase(href='#!') Older Posts &rarr;
+  // Footer
+  footer.border-top
+    .container.px-4.px-lg-5
+      .row.gx-4.gx-lg-5.justify-content-center
+        .col-md-10.col-lg-8.col-xl-7
+          ul.list-inline.text-center
+            li.list-inline-item
+              a(href='#!')
+                span.fa-stack.fa-lg
+                  i.fas.fa-circle.fa-stack-2x
+                  i.fab.fa-twitter.fa-stack-1x.fa-inverse
+            li.list-inline-item
+              a(href='#!')
+                span.fa-stack.fa-lg
+                  i.fas.fa-circle.fa-stack-2x
+                  i.fab.fa-facebook-f.fa-stack-1x.fa-inverse
+            li.list-inline-item
+              a(href='#!')
+                span.fa-stack.fa-lg
+                  i.fas.fa-circle.fa-stack-2x
+                  i.fab.fa-github.fa-stack-1x.fa-inverse
+          .small.text-center.text-muted.fst-italic Copyright &copy; Your Website 2022
+  // Bootstrap core JS
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+  // Core theme JS
+  script(src='js/scripts.js')
+  
